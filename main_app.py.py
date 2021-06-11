@@ -11,7 +11,7 @@ st.set_page_config(layout="wide")
 
 st.markdown("<h1 style='text-align: center; color: white;'>SME Loan Application </h1>", unsafe_allow_html=True)
 
-st.markdown("<h1 style='text-align: center; color: #051723;'>SME Loan Application </h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #051723;'>  </h1>", unsafe_allow_html=True)
 
 cb = pickle.load(open('jomhack.sav', 'rb'))
 
