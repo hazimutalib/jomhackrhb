@@ -74,7 +74,7 @@ if uploaded_file is not None:
 for i in range(len(cb.predict(df1))):
     if cb.predict(df1)[i] == 1:
         st.sidebar.success('Applicants {}: Approved'.format(i+1)) 
-    else: 
+    elif cb.predict(df1)[i] == 0:
         st.sidebar.warning('Applicants {}: Not Approved'.format(i+1))
 
 
