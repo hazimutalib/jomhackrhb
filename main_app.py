@@ -30,7 +30,7 @@ def get_user_input():
        'Public administration', 'Real estate and rental and leasing',
        'Retail trade', 'Transportation and warehousing', 'Utilities',
        'Wholesale trade'])
-    term = col2.number_input('Loan Term (Months):', 0, 527, 105)
+    term = col2.number_input('Loan Term (Months):', 1, 600, 105)
     business = col3.selectbox('Existing/New Business:', ['Existing Business', 'New Business'])
     credit = col4.selectbox('Revolving line of credit:', ['Yes', 'No'])
     amount = col5.number_input('Loan Amount ($):', 1000, 5000000, 150000)
