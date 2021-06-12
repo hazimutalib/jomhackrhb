@@ -11,9 +11,9 @@ st.set_page_config(layout="wide")
 
 st.markdown("<h1 style='text-align: center; '>SME Loan Application </h1>", unsafe_allow_html=True)
 
-st.markdown("<h1 style='text-align: center; color: #051723;'> </h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; '> </h1>", unsafe_allow_html=True)
 
-cb = pickle.load(open('jomhack.sav', 'rb'))
+cb = pickle.load(open('jomhack(1.0).sav', 'rb'))
 
 col1, col2, col3, col4, col5  = st.beta_columns(5)
 
@@ -51,7 +51,7 @@ def st_shap(plot, height=None):
     shap_html = f"<head>{shap.getjs()}</head><body>{plot.html()}</body>"
     components.html(shap_html, height=height)
 
-      
+st.markdown("<h1 style='text-align: center; '> </h1>", unsafe_allow_html=True)    
 
 if cb.predict(user_input)[0] == 1:
     st.markdown("<h2 style='text-align: center; color: blue;'>Loan application is approved</h1>", unsafe_allow_html=True)
@@ -61,7 +61,7 @@ else:
   
 col1, col2, col3, col4, col5  = st.beta_columns(5)
 
-col3.write(cb.predict_proba(user_input)[:,1])
+col3.write(cb.predict_proba(user_input)[:,1][0])
 
 if col3.button('Why?'):
     st_shap(shap.force_plot(ex1.expected_value, shap_values1[0, :], user_input))
