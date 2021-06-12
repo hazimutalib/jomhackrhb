@@ -71,9 +71,9 @@ if uploaded_file is not None:
     df1=pd.read_csv(uploaded_file) 
     for i in range(len(cb.predict(df1))):
         if cb.predict(df1)[i] == 1:
-        st.sidebar.success('Applicants {}: Approved'.format(i+1)) 
-            else:
-        st.sidebar.warning('Applicants {}: Not Approved'.format(i+1))
+            st.sidebar.success('Applicants {}: Approved'.format(i+1)) 
+        else:
+            st.sidebar.warning('Applicants {}: Not Approved'.format(i+1))
 
 
 
