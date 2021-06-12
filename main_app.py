@@ -54,16 +54,15 @@ def st_shap(plot, height=None):
 st.markdown("<h1 style='text-align: center; '> </h1>", unsafe_allow_html=True)    
 
 if cb.predict(user_input)[0] == 1:
-    st.markdown("<h2 style='text-align: center; color: blue;'>Loan application is approved</h1>", unsafe_allow_html=True)
+    st.success("Loan application is approved with {}% risk of default".format(((1-cb.predict_proba(user_input)[:,1][0])*100).round(2)))
 else: 
-    st.markdown("<h2 style='text-align: center; color: red;'>Loan application is not approved</h1>", unsafe_allow_html=True)
+    st.warning("Loan application is not approved with {}% risk of default".format(((1-cb.predict_proba(user_input)[:,1][0])*100).round(2)))
 
   
 col1, col2, col3, col4, col5  = st.beta_columns(5)
 
-col3.header("with {}% risk of default".format(((1-cb.predict_proba(user_input)[:,1][0])*100).round(2)))
 
-if col3.button('Why?'):
+if col3.button("Heres's Why?"):
     st_shap(shap.force_plot(ex1.expected_value, shap_values1[0, :], user_input))
 
 
