@@ -62,7 +62,7 @@ else:
 col1, col2, col3, col4, col5  = st.beta_columns(5)
 
 
-if col3.button("Here's Why?"):
+if col3.button("Here's why:"):
     st_shap(shap.force_plot(ex1.expected_value, shap_values1[0, :], user_input))
 
 
