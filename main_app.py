@@ -61,7 +61,7 @@ else:
   
 col1, col2, col3, col4, col5  = st.beta_columns(5)
 
-col3.header("{}%".format(cb.predict_proba(user_input)[:,1][0].round(4)*100))
+col3.header("with {}% risk of default".format((1-cb.predict_proba(user_input)[:,1][0].round(4))*100))
 
 if col3.button('Why?'):
     st_shap(shap.force_plot(ex1.expected_value, shap_values1[0, :], user_input))
