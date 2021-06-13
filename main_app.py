@@ -6,7 +6,6 @@ import shap
 import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
 
-
 st.set_page_config(layout="wide")
 
 st.markdown("<h1 style='text-align: center; '>SME Loan Application </h1>", unsafe_allow_html=True)
@@ -69,6 +68,8 @@ if col3.button("Here's why:"):
 uploaded_file = st.sidebar.file_uploader("Choose a file")
 if uploaded_file is not None:
     df1 = pd.read_csv(uploaded_file) 
+    df1 = df1[['Industrial Sector', 'Loan Term', 'Existing Business or New Business',
+       'Revolving line of credit', 'Loan Amount']]
     for i in range(len(cb.predict(df1))):
         if cb.predict(df1)[i] == 1:
             st.sidebar.success('Applicants {}: Approved'.format(i+1)) 
